@@ -25,7 +25,7 @@ const setCurrentPage = (num)  => {
 }
 
 
-
+// Event listener for searching the movies
   btnSearch.addEventListener('click', () => {
       
       fetchMovie();
@@ -33,6 +33,7 @@ const setCurrentPage = (num)  => {
         
       });
 
+      // function for fetching the movies from API
       const fetchMovie = () => {
         currentPageElement.value = currentPage;
         fetch( `https://www.omdbapi.com/?apikey=56e00a84&s=${searchInput.value}&page=${currentPage}` )
@@ -46,7 +47,7 @@ const setCurrentPage = (num)  => {
 
       }
 
-
+// function for rendering the result search of Movies
       const render = () => {
 
         resultOfSearch.innerHTML = '';
@@ -66,12 +67,13 @@ const setCurrentPage = (num)  => {
         });
       }
 
+// Function for adding movies into the cart
       const add = (idx) => {
         setCartMovies([...cartMovies, movieState[idx]]);
         cartRender();
       }
 
-
+// Function for rendering Movies into the cart
       const cartRender = () => {
 
         cartElement.innerHTML = '';
@@ -91,6 +93,7 @@ const setCurrentPage = (num)  => {
         });
       }
 
+      // Function for deleting movies from the cart
       const deletefunction = (idx) => {
         let temp = [...cartMovies];
         temp.splice(idx, 1);
@@ -98,13 +101,14 @@ const setCurrentPage = (num)  => {
         cartRender();
       }
 
+      //left Event listener for pagination
       leftElement.addEventListener('click', () => {
         currentPage <=1 ? setCurrentPage(1) : setCurrentPage(currentPage - 1);
         setMovieState([]);
         fetchMovie();
         render();
       });
-
+      //right Event listener for pagination
       rightElement.addEventListener('click', () => {
         setCurrentPage(currentPage + 1);
         setMovieState([]);
