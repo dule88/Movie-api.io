@@ -10,7 +10,7 @@
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg bg-light rounded">
+  <nav class="navbar navbar-expand-lg rounded" style="background-color: #c2cef9;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Movie Search</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,8 +19,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
         <input class="form-control me-2 my-2 searchString searchInput" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success btnSearch" type="submit">Search</button>
-      
+        
+        <button class="btn btn-outline-info btnSearch" type="submit">Search</button>
+          
     
     </div>
   </div>
@@ -30,7 +31,7 @@
   <div class="d-flex justify-content-center align-items-center">
 
     <div>
-      <button class="btn btn-success left"><</button>
+      <button class="btn btn-info left"><</button>
     </div>
     
     <div class="mx-2">
@@ -38,7 +39,7 @@
     </div>
   
     <div>
-      <button class="btn btn-success right">></button>
+      <button class="btn btn-info right">></button>
     </div>
 
   </div>
@@ -49,8 +50,8 @@
 
 
 <section class="mt-3 container-fluid" style="height: 100%;">
-  <article class="row h-100 border-top border-3">
-    <div class="col-8 border-end border-3">
+  <article class="row h-100 border-top border-2 border-info">
+    <div class="col-sm-8 col-12 border-end border-bottom border-2 border-info">
       <div class="row resultOfSearch">
 
       </div>
@@ -58,7 +59,7 @@
     </div>
     
     
-    <div class="col-4 cart">
+    <div class="col-sm-4 col-12 cart">
 
     </div>
   </article>

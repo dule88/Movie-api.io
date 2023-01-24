@@ -1,5 +1,8 @@
 body{
-  background: #aac9f2!important;
+  /* background: #33527b!important; */
+  background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url('/images/movie-slate-film-reel-wood-clapper-wooden-backgorund-36502412.jpg') !important;
+  background-position: center!important;
+  background-size: cover!important;
   padding: 50px 24px!Important;
   margin: 0!Important;
   height: 100vh!Important;
