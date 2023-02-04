@@ -62,13 +62,13 @@ const setCartMovies = (list) => {
 
         movieState.forEach((movie, idx) => {
           resultOfSearch.innerHTML += 
-          `<div class="col text-dark m-2 pb-4">
-            <div class="card" style="width: 18rem; height:100%;">
+          `<div class="col text-white py-4">
+            <div class="card bg-dark" style="width: 19rem; height:100%;">
               <img src=${movie.Poster} class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">${movie.Title}</h5>
                 <p class="card-text">Year: ${movie.Year} Type: ${movie.Type}</p>
-                <a class="btn btn-primary" onClick="add(${idx})">Add to cart</a>
+                <a class="btn btn-outline-success" onClick="add(${idx})">Add to cart</a>
               </div>
             </div>
           </div>`;
@@ -90,16 +90,26 @@ const setCartMovies = (list) => {
 
         cartMovies.forEach((movie, idx) => {
           cartElement.innerHTML += 
-          `<div class="col text-dark m-2 pb-4">
-            <div class="card" style="width: 18rem; height:100%;">
-              <img src=${movie.Poster} class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">${movie.Title}</h5>
-                <p class="card-text">Year: ${movie.Year} Type: ${movie.Type}</p>
-                <a class="btn btn-danger" onClick="deletefunction(${idx})">Delete</a>
-              </div>
-            </div>
-          </div>`;
+          `
+                <div class="">
+                    <div class="movie__card d-flex mb-3">
+                        <img src=${movie.Poster} alt=${movie.Title} style="height: 220px;">
+
+                        <div>
+                            <ul class="list-group list-group-flush border-dark" >
+                                <li class="list-group-item text-bg-dark fs-6 border-dark text-white-50 py-1 pe-0 pt-0">Title: <span class="text-white">${movie.Title}</span> </li>
+                                </li>
+                                <li class="list-group-item text-bg-dark fs-6 border-dark text-white-50 py-1 pe-0">Year: <span class="text-white">${movie.Year}</span></li>
+                              
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <span class="text-danger me-2" type="button" onclick=deletefunction(${idx})><i class="bi bi-trash3 fs-5 pointer"></i></span>
+                </div>
+                <hr class="text-bg-dark mb-4">
+            `
         });
       }
 
