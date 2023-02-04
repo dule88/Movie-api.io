@@ -1,16 +1,24 @@
 const btnSearch = document.querySelector('#searchBtn');
 const searchInput = document.querySelector('#searchInput');
 const resultOfSearch = document.querySelector('#resaultContainer');
-// const cartElement = document.querySelector('#resaultContainer');
+const cartElement = document.querySelector('#modalListContent');
 // const leftElement = document.querySelector('.left');
 // const rightElement = document.querySelector('.right');
-// const currentPageElement = document.querySelector('.searchPagination');
+const currentPageElement = document.querySelector('.searchPagination');
 
 
 
+let currentPage = 1;
+let prevPage = 0;
+let nextPage = 2;
+
+//Posible API answers
 let movieState = [];
 let cartMovies = [];
-// let currentPage = 1;
+let totalResults = 0;
+
+let lastPage = Math.floor(totalResults / 10);
+
 
 const setMovieState = (list) => {
   movieState = [...list];
@@ -68,38 +76,40 @@ const setCartMovies = (list) => {
       }
 
 // Function for adding movies into the cart
-      // const add = (idx) => {
-      //   setCartMovies([...cartMovies, movieState[idx]]);
-      //   cartRender();
-      // }
+      const add = (idx) => {
+        setCartMovies([...cartMovies, movieState[idx]]);
+        render();
+        cartRender();
+        
+      }
 
-// // Function for rendering Movies into the cart
-//       const cartRender = () => {
+// Function for rendering Movies into the cart
+      const cartRender = () => {
 
-//         cartElement.innerHTML = '';
+        cartElement.innerHTML = '';
 
-//         cartMovies.forEach((movie, idx) => {
-//           cartElement.innerHTML += 
-//           `<div class="col text-dark m-2 pb-4">
-//             <div class="card" style="width: 18rem; height:100%;">
-//               <img src=${movie.Poster} class="card-img-top" alt="...">
-//               <div class="card-body">
-//                 <h5 class="card-title">${movie.Title}</h5>
-//                 <p class="card-text">Year: ${movie.Year} Type: ${movie.Type}</p>
-//                 <a class="btn btn-danger" onClick="deletefunction(${idx})">Delete</a>
-//               </div>
-//             </div>
-//           </div>`;
-//         });
-//       }
+        cartMovies.forEach((movie, idx) => {
+          cartElement.innerHTML += 
+          `<div class="col text-dark m-2 pb-4">
+            <div class="card" style="width: 18rem; height:100%;">
+              <img src=${movie.Poster} class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">${movie.Title}</h5>
+                <p class="card-text">Year: ${movie.Year} Type: ${movie.Type}</p>
+                <a class="btn btn-danger" onClick="deletefunction(${idx})">Delete</a>
+              </div>
+            </div>
+          </div>`;
+        });
+      }
 
       // // Function for deleting movies from the cart
-      // const deletefunction = (idx) => {
-      //   let temp = [...cartMovies];
-      //   temp.splice(idx, 1);
-      //   setCartMovies(temp);
-      //   cartRender();
-      // }
+      const deletefunction = (idx) => {
+        let temp = [...cartMovies];
+        temp.splice(idx, 1);
+        setCartMovies(temp);
+        cartRender();
+      }
 
       // //left Event listener for pagination
       // leftElement.addEventListener('click', () => {
